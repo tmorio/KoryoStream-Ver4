@@ -1,3 +1,6 @@
+//Twitterから特定のタグが付いたツイートを取得するやつ
+//やっぱPDOでDBに書き込みたいよね(後ほど実装〜)
+
 <?php
 require_once('./lib/Phirehose.php');
 require_once('./lib/OauthPhirehose.php');
