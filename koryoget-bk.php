@@ -12,8 +12,6 @@ class FilterTrackConsumer extends OauthPhirehose
   {
     //JSONデコード
     $data = json_decode($status, true);
-    //検索ターゲット指定
-    $tags = array('#koryosai2018','#koryosai');
 
     if (is_array($data) && isset($data['user']['screen_name'])) {
         //改行コード変換
