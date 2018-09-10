@@ -26,7 +26,7 @@ class FilterTrackConsumer extends OauthPhirehose
 
     $rtcheck = array('RT','@');
     $nguser = array('交換','まとめ','ニュース','攻略');
-    $deleteword = array('#koryosai2017','#koryosai');
+    $deleteword = array('#koryosai2018','#koryosai');
     $cmd = array('#cmdsecret','#cmdred','#cmdgreen','#cmdblue','#cmdpr');
 
     if (is_array($data) && isset($data['user']['screen_name'])) {
