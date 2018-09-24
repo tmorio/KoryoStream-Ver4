@@ -1,6 +1,3 @@
-//Twitterから特定のタグが付いたツイートを取得するやつ
-//やっぱPDOでDBに書き込みたいよね(後ほど実装〜)
-
 <?php
 require_once('./lib/Phirehose.php');
 require_once('./lib/OauthPhirehose.php');
@@ -38,4 +35,5 @@ define("OAUTH_SECRET", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 $sc = new FilterTrackConsumer(OAUTH_TOKEN, OAUTH_SECRET, Phirehose::METHOD_FILTER);
 //検索ターゲット指定
 $sc->setTrack(array('#koryosai2018', '#koryosai'));   //取得したいタグを入れる
-//$sc->setTrack(array('Hello','FGO'));$sc->consume();
+//$sc->setTrack(array('Hello','FGO'));
+$sc->consume();
