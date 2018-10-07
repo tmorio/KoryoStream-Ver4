@@ -33,21 +33,12 @@ class FilterTrackConsumer extends OauthPhirehose
     $tags = array('#koryosai2018','#koryosai');
 
     if (is_array($data) && isset($data['user']['screen_name'])) {
-        //改行コード変換
-        $result = str_ireplace(array("\r\n","\n","\r"), '', $data['text']);
-        //URL削除
-        $result = preg_replace('/https?:\/\/[0-9a-z_,.:;&=+*%$#!?@()~\'\/-]+/i', '', $result);
-        //ツイートからハッシュタグを除去
-        $result = str_replace($tags, '', $result);
-        $result = htmlentities($result, ENT_QUOTES, 'UTF-8');
-
-        if(strpos($result,'RT') === false){
-
            //取得結果出力
            print "[取得]内容:";
            print $data['user']['screen_name'] . ': ' . $result . "\n";
 
-           $username = $data['user']['screen_name'];
+           $username = $data['user']['name'];
+           $userid = $data['user']['screen_name'];
            $iconurl = $data['user']['profile_image_url_https'];
            $strcontent = $result;
 
@@ -55,14 +46,14 @@ class FilterTrackConsumer extends OauthPhirehose
            $mediaurl = "";
 
            //DRBUG
-           print "DB挿入:" . $username . "," . $iconurl . "," . $strcontent . "," . $mediaurl . "\n";
+           print "DB挿入:" . $username . "," . $userid . "," . $iconurl . "," . $strcontent . "," . $mediaurl . "\n";
 
            //SQL分設定
-           $query = "INSERT INTO Data (USER_NAME, USER_ICON, TEXT, MEDIA) VALUES (:username, :usericon, :text, :media)";
+           $query = "INSERT INTO Data (USER_NAME, USER_ID, USER_ICON, TEXT, MEDIA) VALUES (:username, :userid, :usericon, :text, :media)";
            //SQL実行準備
            $stmt = $dbh->prepare($query);
            //各キーに文章代入
-           $params = array(':username' => $username, ':usericon' => $iconurl, ':text' => $strcontent, ':media' => $mediaurl);
+           $params = array(':username' => $username, ':userid' => $userid, ':usericon' => $iconurl, ':text' => $strcontent, ':media' => $mediaurl);
            //INSERT実行
            $stmt->execute($params);
            }
