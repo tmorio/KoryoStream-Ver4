@@ -15,7 +15,7 @@
 
 .bigarea {
   position:relative;
-  height:75%;
+  height:55%;
 }
 
 .bigarea img{
@@ -30,12 +30,12 @@
 }
 
 .area {
-  height:10%;
+  height:15%;
   display: flex;
   font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;;
   font-weight:bold;
   color:#FFF;
-  font-size: 48px;
+  font-size: 42px;
 }
 
 .area img{
@@ -46,12 +46,12 @@
 }
 
 .areasub {
-  height:50%;
+  height:42%;
   display: flex;
   font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;;
   font-weight:bold;
   color:#FFF;
-  font-size: 48px;
+  font-size: 45px;
 }
 
 .areasub img{
@@ -63,49 +63,43 @@
 
 
 .textarea {
-  height:10%;
+  height:25%;
   background: #070942;
   border-radius: 10px;
 }
 
 .textareapink {
-  padding: 3px;
-  height:45%;
+  height:55%;
   background: #c15986;
   border-radius: 10px;
 }
 
 .textareagreen {
-  padding: 3px;
-  height:45%;
+  height:55%;
   background: #3d8e3f;
   border-radius: 10px;
 }
 
 .textareablue {
-  padding: 3px;
-  height:45%;
+  height:55%;
   background: #1f86b7;
   border-radius: 10px;
 }
 
 .textareayellow {
-  padding: 3px;
-  height:45%;
+  height:55%;
   background: #aa8c20;
   border-radius: 10px;
 }
 
 .container {
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: 1.5fr 1fr ;
-  grid-auto-rows: calc((100vh/4) - 55px);
+  grid-auto-rows: calc(16.6667vh - 38px);
+  gap: 10px 10px;
 }
 
 .photo {
-  grid-column: 1;
-  grid-row: 1 / 5;
+  grid-row: 1 / 3;
   background: #0e106b;
   border-color: #fa0;
   padding: 12px;
@@ -113,31 +107,27 @@
 }
 
 .item1 {
-  grid-column: 2;
-  grid-row: 1 / 2;
+  grid-row: 3 / 4;
   background: #e86fa4;
   padding: 12px;
   border-radius: 15px;
 }
 
 .item2 {
-  grid-column: 2;
-  grid-row: 2 / 3;
+  grid-row: 4 / 5;
   background: #57bf5a;
   padding: 12px;
   border-radius: 15px;
 }
 
 .item3 {
-  grid-column: 2;
-  grid-row: 3 / 4;
+  grid-row: 5 / 6;
   background: #26a6e2;
   padding: 12px;
   border-radius: 15px;
 }
 .item4 {
-  grid-column: 2;
-  grid-row: 4 / 5;
+  grid-row: 6 / 7;
   background: #dbb52b;
   padding: 12px;
   border-radius: 15px;
@@ -151,7 +141,7 @@ body {
   overflow: hidden;
   position: relative;
   color:#FFF;
-  font-size:5.4vh;
+  font-size:4.8vh;
 }
 
 .marquee::after {
@@ -165,7 +155,7 @@ body {
   white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 15s;
+  animation-duration: 12s;
   animation-iteration-count: infinite;
 }
 
@@ -174,7 +164,7 @@ body {
   white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 15s;
+  animation-duration: 14s;
   animation-iteration-count: infinite;
 }
 
@@ -183,7 +173,7 @@ body {
   white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 15s;
+  animation-duration: 13s;
   animation-iteration-count: infinite;
 }
 
@@ -192,7 +182,7 @@ body {
   white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 15s;
+  animation-duration: 16s;
   animation-iteration-count: infinite;
 }
 
@@ -209,3 +199,4 @@ body {
     0% { left: 105%; transform: translate(0); }
   100% { left: 0; transform: translate(-105%); }
 }
+
