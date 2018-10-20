@@ -103,7 +103,7 @@
   grid-auto-rows: calc((100vh/4) - 55px);
 }
 
-.photo {
+#photo {
   grid-column: 1;
   grid-row: 1 / 5;
   background: #0e106b;
@@ -112,7 +112,7 @@
   border-radius: 15px;
 }
 
-.item1 {
+#item1 {
   grid-column: 2;
   grid-row: 1 / 2;
   background: #e86fa4;
@@ -120,7 +120,7 @@
   border-radius: 15px;
 }
 
-.item2 {
+#item2 {
   grid-column: 2;
   grid-row: 2 / 3;
   background: #57bf5a;
@@ -128,14 +128,14 @@
   border-radius: 15px;
 }
 
-.item3 {
+#item3 {
   grid-column: 2;
   grid-row: 3 / 4;
   background: #26a6e2;
   padding: 12px;
   border-radius: 15px;
 }
-.item4 {
+#item4 {
   grid-column: 2;
   grid-row: 4 / 5;
   background: #dbb52b;
@@ -165,7 +165,7 @@ body {
   white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 15s;
+  animation-duration: 12s;
   animation-iteration-count: infinite;
 }
 
@@ -174,7 +174,7 @@ body {
   white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 15s;
+  animation-duration: 14s;
   animation-iteration-count: infinite;
 }
 
@@ -183,7 +183,7 @@ body {
   white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 15s;
+  animation-duration: 13s;
   animation-iteration-count: infinite;
 }
 
@@ -192,7 +192,7 @@ body {
   white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 15s;
+  animation-duration: 16s;
   animation-iteration-count: infinite;
 }
 

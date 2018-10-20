@@ -16,7 +16,7 @@
 <br>
 
 <div class="container">
-  <div class="photo">
+  <div id="photo">
 	<div class="bigarea">
 		<img src="./pic.jpg" class="bigpic">
 	</div>
@@ -31,7 +31,7 @@
 	</div>
   </div>
 
-  <div class="item1">
+  <div id="item1">
         <div class="areasub">
                 <img src="./icon.jpg">&nbsp;もりかぷ @InaSMori
         </div>
@@ -42,7 +42,7 @@
 	</div>
 </div>
 
-  <div class="item2">
+  <div id="item2">
         <div class="areasub">
                 <img src="./icon.jpg">&nbsp;もりかぷ @InaSMori
         </div>
@@ -53,7 +53,7 @@
         </div>
 </div>
 
-  <div class="item3">
+  <div id="item3">
         <div class="areasub">
                 <img src="./icon.jpg">&nbsp;もりかぷ @InaSMori
         </div>
@@ -64,7 +64,7 @@
         </div>
 </div>
 
-  <div class="item4">
+  <div id="item4">
         <div class="areasub">
                 <img src="./icon.jpg">&nbsp;もりかぷ @InaSMori
         </div>
@@ -79,4 +79,3 @@
 
 </body>
 </html>
-
