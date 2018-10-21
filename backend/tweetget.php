@@ -12,7 +12,7 @@ define('DB_NAME', 'hogehoge');
 define('DB_ID', 'hogehoge');
 define('DB_PASS', 'hogehogehoge');
 
-cclass FilterTrackConsumer extends OauthPhirehose
+class FilterTrackConsumer extends OauthPhirehose
 {
   public function enqueueStatus($status)
   {
@@ -30,15 +30,13 @@ cclass FilterTrackConsumer extends OauthPhirehose
     //JSONデコード
     $data = json_decode($status, true);
     //タグ指定
-    $tags = array('#koryosai2018','#koryosai');
+    $tags = array('#koryosai2018','#koryosai','#morikapusantest');
 
     if (is_array($data) && isset($data['user']['screen_name'])) {
-     //改行削除
-     $result = str_ireplace(array("\r\n","\n","\r"), '', $data['text']);
-     //タグ削除
-     $result = str_ireplace($tags, '', $data['text']);
-     //URL削除
-	   $result = preg_replace('/https?:\/\/[0-9a-z_,.:;&=+*%$#!?@()~\'\/-]+/i', '', $result);
+
+	   $result = preg_replace("(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)", '', $data['text']);
+	   $result = preg_replace(array('/\r\n/','/\r/','/\n/'), '', $result);
+           $result = str_ireplace($tags, '', $result);
 
            //取得結果出力
            print "[取得]内容:";
@@ -49,7 +47,10 @@ cclass FilterTrackConsumer extends OauthPhirehose
            $iconurl = $data['user']['profile_image_url_https'];
            $strcontent = $result;
 
-	   $pointer = 1;
+	   //ID位置取得
+           $fp = fopen("counter.txt", 'r');
+           $pointer = fgets($fp);
+           fclose($fp);
 
            //後で変更すべし
            $mediaurl = "";
@@ -65,6 +66,17 @@ cclass FilterTrackConsumer extends OauthPhirehose
            $params = array(':username' => $username, ':userid' => $userid, ':usericon' => $iconurl, ':text' => $strcontent, ':media' => $mediaurl, ':id' => $pointer);
            //INSERT実行
            $stmt->execute($params);
+
+
+	   if($pointer >= 5){
+		$pointer = 1;
+	   }else{
+		$pointer = $pointer + 1;
+	   }
+
+	   $cowriter = fopen("counter.txt", "w");
+           @fwrite($cowriter, $pointer);
+           fclose($cowriter);
     }
   }
 }
@@ -72,6 +84,6 @@ cclass FilterTrackConsumer extends OauthPhirehose
 
 $sc = new FilterTrackConsumer(OAUTH_TOKEN, OAUTH_SECRET, Phirehose::METHOD_FILTER);
 //検索ターゲット指定
-$sc->setTrack(array('#koryosai2018', 'hello'));   //取得したいタグを入れる
+$sc->setTrack(array('#koryosai2018','hello'));   //取得したいタグを入れる
 //$sc->setTrack(array('Hello','FGO'));
 $sc->consume();
