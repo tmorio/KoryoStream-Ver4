@@ -33,9 +33,11 @@ class FilterTrackConsumer extends OauthPhirehose
     $tags = array('#koryosai2018','#koryosai','#morikapusantest');
 
     if (is_array($data) && isset($data['user']['screen_name'])) {
-
-	   $result = preg_replace("(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)", '', $data['text']);
-	   $result = preg_replace(array('/\r\n/','/\r/','/\n/'), '', $result);
+           //URL除去
+           $result = preg_replace("(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)", '', $data['text']);
+           //改行除去
+           $result = preg_replace(array('/\r\n/','/\r/','/\n/'), '', $result);
+           //ハッシュタグ除去
            $result = str_ireplace($tags, '', $result);
 
            //取得結果出力
@@ -47,7 +49,7 @@ class FilterTrackConsumer extends OauthPhirehose
            $iconurl = $data['user']['profile_image_url_https'];
            $strcontent = $result;
 
-	   //ID位置取得
+	         //ID位置取得
            $fp = fopen("counter.txt", 'r');
            $pointer = fgets($fp);
            fclose($fp);
