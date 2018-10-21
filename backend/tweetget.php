@@ -12,7 +12,7 @@ define('DB_NAME', 'hogehoge');
 define('DB_ID', 'hogehoge');
 define('DB_PASS', 'hogehogehoge');
 
-class FilterTrackConsumer extends OauthPhirehose
+cclass FilterTrackConsumer extends OauthPhirehose
 {
   public function enqueueStatus($status)
   {
@@ -33,6 +33,13 @@ class FilterTrackConsumer extends OauthPhirehose
     $tags = array('#koryosai2018','#koryosai');
 
     if (is_array($data) && isset($data['user']['screen_name'])) {
+     //改行削除
+     $result = str_ireplace(array("\r\n","\n","\r"), '', $data['text']);
+     //タグ削除
+     $result = str_ireplace($tags, '', $data['text']);
+     //URL削除
+	   $result = preg_replace('/https?:\/\/[0-9a-z_,.:;&=+*%$#!?@()~\'\/-]+/i', '', $result);
+
            //取得結果出力
            print "[取得]内容:";
            print $data['user']['screen_name'] . ': ' . $result . "\n";
@@ -42,28 +49,29 @@ class FilterTrackConsumer extends OauthPhirehose
            $iconurl = $data['user']['profile_image_url_https'];
            $strcontent = $result;
 
+	   $pointer = 1;
+
            //後で変更すべし
            $mediaurl = "";
 
            //DRBUG
            print "DB挿入:" . $username . "," . $userid . "," . $iconurl . "," . $strcontent . "," . $mediaurl . "\n";
 
-           //SQL分設定
-           $query = "INSERT INTO Data (USER_NAME, USER_ID, USER_ICON, TEXT, MEDIA) VALUES (:username, :userid, :usericon, :text, :media)";
+           //実行するSQL文設定
+           $query = "UPDATE Data SET USER_NAME = :username, USER_ID = :userid, USER_ICON = :usericon, TEXT = :text, MEDIA = :media WHERE id = :id";
            //SQL実行準備
            $stmt = $dbh->prepare($query);
            //各キーに文章代入
-           $params = array(':username' => $username, ':userid' => $userid, ':usericon' => $iconurl, ':text' => $strcontent, ':media' => $mediaurl);
+           $params = array(':username' => $username, ':userid' => $userid, ':usericon' => $iconurl, ':text' => $strcontent, ':media' => $mediaurl, ':id' => $pointer);
            //INSERT実行
            $stmt->execute($params);
-           }
-        }
-     }
+    }
+  }
 }
+
 
 $sc = new FilterTrackConsumer(OAUTH_TOKEN, OAUTH_SECRET, Phirehose::METHOD_FILTER);
 //検索ターゲット指定
 $sc->setTrack(array('#koryosai2018', 'hello'));   //取得したいタグを入れる
 //$sc->setTrack(array('Hello','FGO'));
 $sc->consume();
-
