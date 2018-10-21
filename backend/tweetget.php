@@ -16,6 +16,7 @@ class FilterTrackConsumer extends OauthPhirehose
 {
   public function enqueueStatus($status)
   {
+
     //文字コード設定(絵文字対策のためにUTF8MB4)
     $strcode = array(PDO::MYSQL_ATTR_INIT_COMMAND=>"SET CHARACTER SET 'utf8mb4'");
     //DB接続試行
@@ -26,18 +27,18 @@ class FilterTrackConsumer extends OauthPhirehose
          echo $e->getMessage();
          exit;
     }
+   //JSONデコード
+   $data = json_decode($status, true);
+   //RT,@ツイート処理スキップ
+   if(preg_match('/RT|@/',$data['text']) == false){
 
-    //JSONデコード
-    $data = json_decode($status, true);
     //タグ指定
     $tags = array('#koryosai2018','#koryosai','#morikapusantest');
 
     if (is_array($data) && isset($data['user']['screen_name'])) {
-           //URL除去
-           $result = preg_replace("(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)", '', $data['text']);
-           //改行除去
-           $result = preg_replace(array('/\r\n/','/\r/','/\n/'), '', $result);
-           //ハッシュタグ除去
+
+	   $result = preg_replace("(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)", '', $data['text']);
+	   $result = preg_replace(array('/\r\n/','/\r/','/\n/'), '', $result);
            $result = str_ireplace($tags, '', $result);
 
            //取得結果出力
@@ -48,14 +49,19 @@ class FilterTrackConsumer extends OauthPhirehose
            $userid = $data['user']['screen_name'];
            $iconurl = $data['user']['profile_image_url_https'];
            $strcontent = $result;
-
-	         //ID位置取得
-           $fp = fopen("counter.txt", 'r');
-           $pointer = fgets($fp);
-           fclose($fp);
-
-           //後で変更すべし
-           $mediaurl = "";
+     //画像の有無確認後,合ったIDを設定
+	   if(empty($data['extended_entities'])){
+	   	//ID位置取得
+           	$fp = fopen("counter.txt", 'r');
+           	$pointer = fgets($fp);
+           	fclose($fp);
+		$mediaurl = "";
+	   }else{
+		$pointer = 5;
+           	if(($data['extended_entities']['media'][0]['type'] == "photo")){
+                	$mediaurl = $data['extended_entities']['media'][0]['media_url'];
+           	}
+	   }
 
            //DRBUG
            print "DB挿入:" . $username . "," . $userid . "," . $iconurl . "," . $strcontent . "," . $mediaurl . "\n";
@@ -66,19 +72,20 @@ class FilterTrackConsumer extends OauthPhirehose
            $stmt = $dbh->prepare($query);
            //各キーに文章代入
            $params = array(':username' => $username, ':userid' => $userid, ':usericon' => $iconurl, ':text' => $strcontent, ':media' => $mediaurl, ':id' => $pointer);
-           //INSERT実行
+           //UPDATE実行
            $stmt->execute($params);
-
-
-	   if($pointer >= 5){
-		$pointer = 1;
-	   }else{
-		$pointer = $pointer + 1;
-	   }
-
+     //次に書き込むIDを保存
+	   if(empty($data['extended_entities'])){
+	   	if($pointer >= 4){
+			$pointer = 1;
+			}else{
+			$pointer = $pointer + 1;
+	   		}
 	   $cowriter = fopen("counter.txt", "w");
            @fwrite($cowriter, $pointer);
            fclose($cowriter);
+	  }
+	}
     }
   }
 }
@@ -86,6 +93,6 @@ class FilterTrackConsumer extends OauthPhirehose
 
 $sc = new FilterTrackConsumer(OAUTH_TOKEN, OAUTH_SECRET, Phirehose::METHOD_FILTER);
 //検索ターゲット指定
-$sc->setTrack(array('#koryosai2018','hello'));   //取得したいタグを入れる
+$sc->setTrack(array('#koryosai2018', '#morikapusantest','FGO'));   //取得したいタグを入れる
 //$sc->setTrack(array('Hello','FGO'));
 $sc->consume();
