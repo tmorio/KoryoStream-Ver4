@@ -39,7 +39,8 @@ class FilterTrackConsumer extends OauthPhirehose
 
 	   $result = preg_replace("(https?://[-_.!~*\'()a-zA-Z0-9;/?:@&=+$,%#]+)", '', $data['text']);
 	   $result = preg_replace(array('/\r\n/','/\r/','/\n/'), '', $result);
-           $result = str_ireplace($tags, '', $result);
+     $result = str_ireplace($tags, '', $result);
+     $result = htmlspecialchars($result, ENT_QUOTES, 'UTF-8');
 
            //取得結果出力
            print "[取得]内容:";
