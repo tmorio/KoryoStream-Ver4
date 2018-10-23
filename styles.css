@@ -1,0 +1,267 @@
+.title {
+  height:115px;
+  overflow:hidden;  
+  font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight:bold;
+  text-overflow:ellipsis;
+  vertical-align:6px;
+  font-size: 95px;
+}
+
+.title img{
+   max-width:90px;
+   height: auto;
+}
+
+.bigarea {
+  position:relative;
+  height:75%;
+  overflow: hidden;
+  white-space:nowrap;
+}
+
+.bigarea img{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin:auto;
+  width:auto;
+  height:auto;
+  object-fit: contain;
+  min-height:95%;
+  max-width:96%;
+  max-height:96%;
+}
+
+.area {
+  height:10%;
+  font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;;
+  font-weight:bold;
+  color:#FFF;
+  font-size:45px;
+  overflow: hidden;
+  white-space:nowrap;
+}
+
+.area img{
+  vertical-align:middle;
+  max-width:75px;
+  max-height:75px;
+  height:auto;
+  width:auto;
+}
+
+.areasub {
+  height:45%;
+  font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;;
+  font-weight:bold;
+  color:#FFF;
+  font-size:45px;
+  margin:3px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.areasub img{
+  vertical-align:middle;
+  max-width:70px;
+  max-height:70px;
+  height:auto;
+  width:auto;
+}
+
+
+.textarea {
+  height:10%;
+  background:#070942;
+  border-radius:10px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.textareapink {
+  padding:3px;
+  height:45%;
+  background:#c15986;
+  border-radius: 10px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.textareagreen {
+  padding:3px;
+  height:45%;
+  background:#3d8e3f;
+  border-radius:10px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.textareablue {
+  padding:3px;
+  height:45%;
+  background:#1f86b7;
+  border-radius:10px;
+  overflow: hidden;
+  white-space:nowrap;
+}
+
+.textareayellow {
+  padding:3px;
+  height:45%;
+  background:#aa8c20;
+  border-radius:10px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.container {
+  display:grid;
+  grid-gap:10px;
+  grid-template-columns: 1.25fr 1fr ;
+  grid-auto-rows: calc((100vh/4) - 55px);
+}
+
+#itemphoto {
+  height:100%;
+}
+
+#item1 {
+  height:100%;
+}
+
+#item2 {
+  height:100%;
+}
+
+#item3 {
+  height:100%;
+}
+
+#item4 {
+  height:100%;
+}
+
+.photo {
+  grid-column:1;
+  grid-row: 1 / 5;
+  background:#0e106b;
+  border-color:#fa0;
+  padding:8px;
+  border-radius:15px;
+  overflow: hidden;
+  white-space:nowrap;
+}
+
+.item1 {
+  grid-column:2;
+  grid-row: 1 / 2;
+  background:#e86fa4;
+  padding:8px;
+  border-radius:15px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.item2 {
+  grid-column:2;
+  grid-row: 2 / 3;
+  background:#57bf5a;
+  padding:8px;
+  border-radius:15px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+
+.item3 {
+  grid-column:2;
+  grid-row: 3 / 4;
+  background:#26a6e2;
+  padding:8px;
+  border-radius:15px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+.item4 {
+  grid-column:2;
+  grid-row: 4 / 5;
+  background:#dbb52b;
+  padding:8px;
+  border-radius:15px;
+  overflow:hidden;
+  white-space:nowrap;
+}
+body {
+  padding:10px;
+  font-family: sans-serif;
+}
+
+.marquee {
+  overflow:hidden;
+  position:relative;
+  color:#FFF;
+  font-size:5.4vh;
+}
+
+.marquee::after {
+  content: "";
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.marquee > .marquee-inner {
+  position: absolute;
+  white-space: nowrap;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-duration: 18s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.marquee > .marquee-innera {
+  position: absolute;
+  white-space: nowrap;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-duration: 20s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.marquee > .marquee-innerb {
+  position: absolute;
+  white-space: nowrap;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-duration: 19s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.marquee > .marquee-innerc {
+  position: absolute;
+  white-space: nowrap;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-duration: 22s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.marquee > .marquee-innerd {
+  position: absolute;
+  white-space: nowrap;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-duration: 21s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes marquee {
+    0% { left: 102%; transform: translate(0); }
+  100% { left: 0; transform: translate(-105%); }
+}
