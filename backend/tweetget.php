@@ -20,11 +20,11 @@ class FilterTrackConsumer extends OauthPhirehose
     }
 
    $data = json_decode($status, true);
-
+   //RT、@ツイートの除外
    if(preg_match('/RT|@/',$data['text']) == false){
 
     //タグ指定やNGワードの設定(削除対象文字)
-    $tagsNG = array('#koryosai2018','#koryosai','#morikapusantest',"'","<",">","\\");
+    $tagsNG = array('#koryosai2018','#morikapusantest');
 
     if (is_array($data) && isset($data['user']['screen_name'])) {
 
@@ -32,8 +32,7 @@ class FilterTrackConsumer extends OauthPhirehose
 	   $result = preg_replace(array('/\r\n/','/\r/','/\n/','/\\\/u'), '', $result);
            $result = str_ireplace($tagsNG, '', $result);
 	   $result = htmlspecialchars($result, ENT_QUOTES, 'UTF-8');
-           $namedata = preg_replace(array('/\r\n/','/\r/','/\n/','/\\\/u'), '', $data['user']['name']);
-           $namedata = str_ireplace($tagsNG, '', $namedata);
+           $namedata = str_ireplace($tagsNG, '', $data['user']['name']);
            //取得結果出力
            print "[取得]内容:";
            print $data['user']['screen_name'] . ': ' . $result . "\n";
@@ -56,17 +55,22 @@ class FilterTrackConsumer extends OauthPhirehose
            	}
 	   }
 
-           //DRBUG
+           //nohupログ用DRBUG
            print "DB挿入:" . "ID=" . $pointer . "," . $username . "," . $userid . "," . $iconurl . "," . $strcontent . "," . $mediaurl . "\n";
 
            //実行するSQL文設定
            $query = "UPDATE Data SET USER_NAME = :username, USER_ID = :userid, USER_ICON = :usericon, TEXT = :text, MEDIA = :media WHERE id = :id";
            //SQL実行準備
            $stmt = $dbh->prepare($query);
-           //各キーに文章代入
-           $params = array(':username' => $username, ':userid' => $userid, ':usericon' => $iconurl, ':text' => $strcontent, ':media' => $mediaurl, ':id' => $pointer);
-           //INSERT実行
-           $stmt->execute($params);
+           //各キーにPDOで代入
+	   $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+	   $stmt->bindParam(':userid', $userid, PDO::PARAM_STR);
+	   $stmt->bindParam(':usericon', $iconurl, PDO::PARAM_STR);
+	   $stmt->bindParam(':text', $strcontent, PDO::PARAM_STR);
+	   $stmt->bindParam(':media', $mediaurl, PDO::PARAM_STR);
+	   $stmt->bindValue(':id', $pointer, PDO::PARAM_INT);
+           //UPDATE実行
+           $stmt->execute();
 
 	   if(empty($data['extended_entities'])){
 	   	if($pointer >= 5){
@@ -83,7 +87,9 @@ class FilterTrackConsumer extends OauthPhirehose
   }
 }
 
+
 $sc = new FilterTrackConsumer(OAUTH_TOKEN, OAUTH_SECRET, Phirehose::METHOD_FILTER);
-$sc->setTrack(SEARCHWORD);
+//検索ターゲット指定
+$sc->setTrack(SEARCHWORD);   //取得したいタグを入れる
 $sc->consume();
 

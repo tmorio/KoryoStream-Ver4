@@ -218,7 +218,7 @@ body {
   white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 18s;
+  animation-duration: 16s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -228,7 +228,7 @@ body {
   white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 20s;
+  animation-duration: 18s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -238,7 +238,7 @@ body {
   white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 19s;
+  animation-duration: 17s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -248,7 +248,7 @@ body {
   white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 22s;
+  animation-duration: 20s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -258,7 +258,7 @@ body {
   white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 21s;
+  animation-duration: 19s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }

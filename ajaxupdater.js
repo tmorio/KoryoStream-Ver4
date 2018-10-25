@@ -3,7 +3,7 @@ new Ajax.PeriodicalUpdater(
         'update.php?id=1',
         {
           method: 'get',
-          frequency: 18,
+          frequency: 16,
         }
       )
       new Ajax.PeriodicalUpdater(
@@ -11,7 +11,7 @@ new Ajax.PeriodicalUpdater(
         'update.php?id=2',
         {
           method: 'get',
-          frequency: 21,
+          frequency: 19,
         }
       )
       new Ajax.PeriodicalUpdater(
@@ -19,7 +19,7 @@ new Ajax.PeriodicalUpdater(
         'update.php?id=3',
         {
           method: 'get',
-          frequency: 20,
+          frequency: 18,
         }
       )
       new Ajax.PeriodicalUpdater(
@@ -27,7 +27,7 @@ new Ajax.PeriodicalUpdater(
         'update.php?id=4',
         {
           method: 'get',
-          frequency: 22,
+          frequency: 20,
         }
       )
       new Ajax.PeriodicalUpdater(
@@ -35,6 +35,6 @@ new Ajax.PeriodicalUpdater(
         'update.php?id=5',
         {
           method: 'get',
-          frequency: 21,
+          frequency: 19,
         }
       )

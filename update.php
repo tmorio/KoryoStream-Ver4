@@ -17,33 +17,33 @@ try {
 		$sql = "SELECT * FROM Data WHERE id = " . $id;
 		$stmt = $pdo->query($sql);
 		while($row = $stmt -> fetch(PDO::FETCH_ASSOC)) {
-			$username = $row["USER_NAME"];
+			$username = htmlentities($row["USER_NAME"], ENT_QUOTES, 'UTF-8');
                 	$userid = $row["USER_ID"];
 			$iconurl = $row["USER_ICON"];
-			$text = $row["TEXT"];
+			$text = htmlentities($row["TEXT"], ENT_QUOTES, 'UTF-8');
 			$media = $row["MEDIA"];
 		}
 	}
 
-	$html = '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareapink"><div class="marquee"><div class="marquee-innera">' . $text . '</div></div></div>';
-
 	switch($id){
 	case 1:
-		echo '<div class="bigarea"><img src="' . $media . '" class="bigpic"></div><div class="area"><img src=" ' . $iconurl . '">&nbsp;' . $username . ' @' . $userid . '</div><br><div class="textarea"><div class="marquee"><div class="marquee-inner">' . $text . '</div></div></div>';
+		echo '<div class="bigarea"><img src="' . $media . '" class="bigpic"></div><div class="area"><img src=" ' . $iconurl . '">&nbsp;' . $username . ' @' . $userid . '</div><br><div class="textarea"><div class="marquee"><div class="marquee-inner">';
 		break;
 	case 2:
-		echo $html;
+		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareapink"><div class="marquee"><div class="marquee-innera">';
 		break;
 	case 3:
-		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareagreen"><div class="marquee"><div class="marquee-innera">' . $text . '</div></div></div>';
+		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareagreen"><div class="marquee"><div class="marquee-innera">';
 		break;
 	case 4:
-		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareablue"><div class="marquee"><div class="marquee-innera">' . $text . '</div></div></div>';
+		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareablue"><div class="marquee"><div class="marquee-innera">';
 		break;
 	case 5:
-		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareayellow"><div class="marquee"><div class="marquee-innera">' . $text . '</div></div></div>';
+		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareayellow"><div class="marquee"><div class="marquee-innera">';
 		break;
 	default:
-		echo 'IDがセットされていません';
+		echo '不正なパラメータが送信されました。';
 		break;
 	}
+
+	echo $text . '</div></div></div>';

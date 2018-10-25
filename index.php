@@ -7,7 +7,7 @@ require_once('./backend/myid.php');
 <html lang="ja">
 <head>
 	<meta charset="utf-8">
-	<title>Koryo Stream Ver4</title>
+	<title>KoryoStream Ver4</title>
 	<link rel="stylesheet" href="styles.css?Ver=4">
 </head>
 
