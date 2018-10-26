@@ -16,7 +16,6 @@
 .bigarea {
   position:relative;
   height:75%;
-  overflow: hidden;
   white-space:nowrap;
 }
 
@@ -40,8 +39,7 @@
   font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;;
   font-weight:bold;
   color:#FFF;
-  font-size:45px;
-  overflow: hidden;
+  font-size:5vh;
   white-space:nowrap;
 }
 
@@ -59,9 +57,8 @@
   font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;;
   font-weight:bold;
   color:#FFF;
-  font-size:45px;
+  font-size:5vh;
   margin:3px;
-  overflow:hidden;
   white-space:nowrap;
 }
 
@@ -79,7 +76,6 @@
   height:10%;
   background:#070942;
   border-radius:10px;
-  overflow:hidden;
   white-space:nowrap;
 }
 
@@ -88,7 +84,6 @@
   height:45%;
   background:#c15986;
   border-radius: 10px;
-  overflow:hidden;
   white-space:nowrap;
 }
 
@@ -97,7 +92,6 @@
   height:45%;
   background:#3d8e3f;
   border-radius:10px;
-  overflow:hidden;
   white-space:nowrap;
 }
 
@@ -106,7 +100,6 @@
   height:45%;
   background:#1f86b7;
   border-radius:10px;
-  overflow: hidden;
   white-space:nowrap;
 }
 
@@ -115,7 +108,6 @@
   height:45%;
   background:#aa8c20;
   border-radius:10px;
-  overflow:hidden;
   white-space:nowrap;
 }
 
@@ -123,7 +115,7 @@
   display:grid;
   grid-gap:10px;
   grid-template-columns: 1.25fr 1fr ;
-  grid-auto-rows: calc((100vh/4) - 55px);
+  grid-auto-rows: calc((100vh/4) - 52px);
 }
 
 #itemphoto {
@@ -153,7 +145,6 @@
   border-color:#fa0;
   padding:8px;
   border-radius:15px;
-  overflow: hidden;
   white-space:nowrap;
 }
 
@@ -173,7 +164,6 @@
   background:#57bf5a;
   padding:8px;
   border-radius:15px;
-  overflow:hidden;
   white-space:nowrap;
 }
 
@@ -183,7 +173,6 @@
   background:#26a6e2;
   padding:8px;
   border-radius:15px;
-  overflow:hidden;
   white-space:nowrap;
 }
 .item4 {
@@ -192,7 +181,6 @@
   background:#dbb52b;
   padding:8px;
   border-radius:15px;
-  overflow:hidden;
   white-space:nowrap;
 }
 body {
@@ -203,6 +191,7 @@ body {
 .marquee {
   overflow:hidden;
   position:relative;
+  white-space: nowrap;
   color:#FFF;
   font-size:5.4vh;
 }
@@ -215,55 +204,45 @@ body {
 
 .marquee > .marquee-inner {
   position: absolute;
-  white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 16s;
-  animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
 
 .marquee > .marquee-innera {
   position: absolute;
-  white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 18s;
-  animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
 
 .marquee > .marquee-innerb {
   position: absolute;
-  white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 17s;
-  animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
 
 .marquee > .marquee-innerc {
   position: absolute;
-  white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 20s;
-  animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
 
 .marquee > .marquee-innerd {
   position: absolute;
-  white-space: nowrap;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 19s;
-  animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
 
 @keyframes marquee {
-    0% { left: 102%; transform: translate(0); }
-  100% { left: 0; transform: translate(-105%); }
+    0% { left: 101%; transform: translate(0); }
+  100% { left: 0; transform: translate(-101%); }
 }
