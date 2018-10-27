@@ -10,13 +10,14 @@
 ・[Twitter logo](https://about.twitter.com/en_us/company/brand-resources.html)
 ## 使い方
 1. backend/myid.phpがアクセスできないようにWebサーバーの設定をして下さい.  
-例: 
-```nginx
+Nginxの例
+```
 location = /backend/myid.php {
 	deny all;
 }
 ```
-```apache(.htaccess)
+Apacheの例(.htaccess)
+```
 <Files ~ "^\.ht">
 deny from all
 </Files>
