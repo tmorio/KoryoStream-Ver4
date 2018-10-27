@@ -9,7 +9,22 @@
 ・Twitter APIキー  
 ・[Twitter logo](https://about.twitter.com/en_us/company/brand-resources.html)
 ## 使い方
-書いているからもうちょっと待っていてね〜
+1. backend/myid.phpがアクセスできないようにWebサーバーの設定をして下さい.  
+例: 
+```nginx
+location = /backend/myid.php {
+	deny all;
+}
+```
+```apache(.htaccess)
+<Files ~ "^\.ht">
+deny from all
+</Files>
+
+<Files ~ "(myid\.php)">
+deny from all
+</Files>
+```
 ## ライセンス
 The MIT License  
   
