@@ -30,12 +30,11 @@ class FilterTrackConsumer extends OauthPhirehose{
         $result = preg_replace(array('/\r\n/','/\r/','/\n/','/\\\/u'), '', $result);
         $result = str_ireplace($tagsNG, '', $result);
         $result = htmlspecialchars($result, ENT_QUOTES, 'UTF-8');
-        $namedata = str_ireplace($tagsNG, '', $data['user']['name']);
+        $username = str_ireplace($tagsNG, '', $data['user']['name']);
         //取得結果出力
         print "[取得]内容:";
         print $data['user']['screen_name'] . ': ' . $result . "\n";
 
-        $username = $namedata;
         $userid = $data['user']['screen_name'];
         $iconurl = str_ireplace('_normal', '', $data['user']['profile_image_url_https']);
         $strcontent = $result;
@@ -75,10 +74,10 @@ class FilterTrackConsumer extends OauthPhirehose{
             $pointer = 2;
           } else {
             $pointer = $pointer + 1;
-        }
-        $cowriter = fopen("counter.txt", "w");
-        @fwrite($cowriter, $pointer);
-        fclose($cowriter);
+          }
+          $cowriter = fopen("counter.txt", "w");
+          @fwrite($cowriter, $pointer);
+          fclose($cowriter);
         }
       }
     }
