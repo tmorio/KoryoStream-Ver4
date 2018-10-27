@@ -8,8 +8,9 @@
 }
 
 .title img{
-   max-width:90px;
-   height: auto;
+  object-fit: cover;
+  width:auto;
+  height:9.5vh;
 }
 
 .bigarea {
