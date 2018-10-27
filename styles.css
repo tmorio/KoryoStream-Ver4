@@ -1,11 +1,10 @@
 .title {
   height:115px;
-  overflow:hidden;  
   font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight:bold;
   text-overflow:ellipsis;
   vertical-align:6px;
-  font-size: 95px;
+  font-size: 10vh;
 }
 
 .title img{
@@ -44,6 +43,8 @@
 }
 
 .area img{
+  position: relative;
+  top:-5%;
   vertical-align:middle;
   max-width:70px;
   max-height:70px;
@@ -58,15 +59,17 @@
   font-weight:bold;
   color:#FFF;
   font-size:5vh;
-  margin:3px;
+  margin:5px;
   white-space:nowrap;
+  
 
 }
 
 .areasub img{
+  position: relative;
+  top:-6%;
   vertical-align:middle;
-  top:10%;
-  max-width:75px;
+  max-width:70px;
   max-height:70px;
   height:100%;
   width:AUTO;
@@ -246,4 +249,3 @@ body {
     0% { left: 101%; transform: translate(0); }
   100% { left: 0; transform: translate(-101%); }
 }
-
