@@ -10,6 +10,7 @@
 ・[Twitter logo](https://about.twitter.com/en_us/company/brand-resources.html)
 ## 使い方
 1. backend/myid.phpがアクセスできないようにWebサーバーの設定をして下さい.  
+  
 Nginxの例
 ```
 location = /backend/myid.php {
@@ -26,6 +27,26 @@ deny from all
 deny from all
 </Files>
 ```
+2. backend/myid.phpに設定情報を書く  
+3. maketables.phpを実行する  
+```
+php maketables.php
+```
+4. maketables.phpを削除する
+```
+rm maketables.php
+```
+5. backend/tweetget.phpを実行する
+```
+php backend/tweetget.php
+```
+バックグラウンドで実行する場合
+```
+nohup php backend/tweetget.php &
+```
+6. index.phpにブラウザでアクセスしてみる  
+7. ツイートして晒されたら勝ち
+
 ## ライセンス
 The MIT License  
   
