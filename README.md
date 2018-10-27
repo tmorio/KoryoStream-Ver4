@@ -1,3 +1,4 @@
+![Logo](https://github.com/tmorio/KoryoStream-Ver4/blob/photo/v4mini.png "logov4")
 # KoryoStream-Ver4
 小山高専 工陵祭で用いたTwitterタグ晒し機です.
 ## 何ができるの?
