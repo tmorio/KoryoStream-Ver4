@@ -7,9 +7,10 @@
 ・MySQL系のデータベース  
 ・IE、Edge以外のブラウザ(なら大体動くと思う 推奨はVivaldiかChromeです.)  
 ・Twitter APIキー  
-・[Twitter logo](https://about.twitter.com/en_us/company/brand-resources.html)
+・[Twitter logo](https://about.twitter.com/en_us/company/brand-resources.html)←ガイドラインの関係上添付できなかった
 ## 使い方
-1. backend/myid.phpがアクセスできないようにWebサーバーの設定をして下さい.  
+1. DBサーバー上で予め、文字コード「utf8mb4_general_ci」で適当なデーターベースを作成する.  
+2. backend/myid.phpがアクセスできないようにWebサーバーの設定をして下さい.  
   
 Nginxの例
 ```
@@ -27,25 +28,25 @@ deny from all
 deny from all
 </Files>
 ```
-2. backend/myid.phpに設定情報を書く  
-3. maketables.phpを実行する  
+3. backend/myid.phpに設定情報を書く  
+4. maketables.phpを実行する  
 ```
 php maketables.php
 ```
-4. maketables.phpを削除する
+5. maketables.phpを削除する
 ```
 rm maketables.php
 ```
-5. backend/tweetget.phpを実行する
+6. backendに移動しtweetget.phpを実行する
 ```
-php backend/tweetget.php
+php tweetget.php
 ```
 バックグラウンドで実行する場合
 ```
-nohup php backend/tweetget.php &
+nohup php tweetget.php &
 ```
-6. index.phpにブラウザでアクセスしてみる  
-7. ツイートして晒されたら勝ち
+7. index.phpにブラウザでアクセスしてみる  
+8. ツイートして晒されたら勝ち
 
 ## ライセンス
 The MIT License  
