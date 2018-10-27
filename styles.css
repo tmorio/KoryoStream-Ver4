@@ -34,6 +34,8 @@
 }
 
 .area {
+  position:relative;
+  top:2%;
   height:10%;
   font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;;
   font-weight:bold;
