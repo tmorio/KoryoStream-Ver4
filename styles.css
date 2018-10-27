@@ -1,3 +1,8 @@
+body{
+  margin:0px;
+  padding:5px;
+}
+
 .title {
   height:115px;
   font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;
@@ -8,9 +13,9 @@
 }
 
 .title img{
-  object-fit: cover;
-  width:auto;
-  height:9.5vh;
+   object-fit: cover;
+   width:auto;
+   height:9.5vh;
 }
 
 .bigarea {
@@ -121,7 +126,7 @@
   display:grid;
   grid-gap:10px;
   grid-template-columns: 1.25fr 1fr ;
-  grid-auto-rows: calc((100vh/4) - 52px);
+  grid-auto-rows: calc((100vh/4) - 47.5px);
 }
 
 #itemphoto {
@@ -252,3 +257,4 @@ body {
     0% { left: 101%; transform: translate(0); }
   100% { left: 0; transform: translate(-101%); }
 }
+
