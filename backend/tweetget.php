@@ -82,7 +82,6 @@ class FilterTrackConsumer extends OauthPhirehose{
         }
       }
     }
-
   }
 }
 
