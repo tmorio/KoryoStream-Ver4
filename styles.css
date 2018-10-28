@@ -4,6 +4,8 @@ body{
 }
 
 .title {
+  align-items: center;
+  display: flex;
   height:115px;
   font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight:bold;
