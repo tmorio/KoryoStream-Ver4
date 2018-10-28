@@ -33,13 +33,13 @@ try {
 		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareapink"><div class="marquee"><div class="marquee-innera">';
 		break;
 	case 3:
-		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareagreen"><div class="marquee"><div class="marquee-innera">';
+		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareagreen"><div class="marquee"><div class="marquee-innerb">';
 		break;
 	case 4:
-		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareablue"><div class="marquee"><div class="marquee-innera">';
+		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareablue"><div class="marquee"><div class="marquee-innerc">';
 		break;
 	case 5:
-		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareayellow"><div class="marquee"><div class="marquee-innera">';
+		echo '<div class="areasub">' . '<img src="' . $iconurl . '">&nbsp;' . $username ." @" .$userid . '</div><div class="textareayellow"><div class="marquee"><div class="marquee-innerd">';
 		break;
 	default:
 		echo '不正なパラメータが送信されました。';

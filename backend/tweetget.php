@@ -55,10 +55,6 @@ class FilterTrackConsumer extends OauthPhirehose{
         $result = str_ireplace($tagsNG, '', $result);
         $result = htmlspecialchars($result, ENT_QUOTES, 'UTF-8');
         $username = str_ireplace($tagsNG, '', $data['user']['name']);
-        //取得結果出力
-        print "[取得]内容:";
-        print $data['user']['screen_name'] . ': ' . $result . "\n";
-
         $userid = $data['user']['screen_name'];
         $iconurl = str_ireplace('_normal', '', $data['user']['profile_image_url_https']);
         $strcontent = $result;
@@ -77,7 +73,7 @@ class FilterTrackConsumer extends OauthPhirehose{
         }
 
         //nohupログ用DRBUG
-        print "DB挿入:" . "ID=" . $pointer . "," . $username . "," . $userid . "," . $iconurl . "," . $strcontent . "," . $mediaurl . "\n";
+        print "INSERT:" . "ID:" . $pointer . "," . $data['user']['name'] . "@" . $userid ."(" . $data['user']['id'] . ")" .  "," . $strcontent . "\n";
 
         //実行するSQL文設定
         $query = "UPDATE Data SET USER_NAME = :username, USER_ID = :userid, USER_ICON = :usericon, TEXT = :text, MEDIA = :media WHERE id = :id";
@@ -109,5 +105,6 @@ class FilterTrackConsumer extends OauthPhirehose{
 }
 
 $sc = new FilterTrackConsumer(OAUTH_TOKEN, OAUTH_SECRET, Phirehose::METHOD_FILTER);
-$sc->setTrack(SEARCHWORD); 
+$sc->setTrack(SEARCHWORD);
 $sc->consume();
+
