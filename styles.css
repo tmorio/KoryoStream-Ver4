@@ -204,6 +204,7 @@ body{
   white-space: nowrap;
   color:#FFF;
   font-size:5.4vh;
+  font-family:Arial,sans-serif;
 }
 
 .marquee::after {
