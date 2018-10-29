@@ -234,7 +234,7 @@ body{
 
 .marquee > .marquee-inner {
   position: absolute;
-  top:15%;
+  vertical-align: middle;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 20s;
@@ -243,6 +243,7 @@ body{
 
 .marquee > .marquee-innera {
   position: absolute;
+  vertical-align: middle;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 17s;
@@ -251,6 +252,7 @@ body{
 
 .marquee > .marquee-innerb {
   position: absolute;
+  vertical-align: middle;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 18s;
@@ -259,6 +261,7 @@ body{
 
 .marquee > .marquee-innerc {
   position: absolute;
+  vertical-align: middle;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 16s;
@@ -267,6 +270,7 @@ body{
 
 .marquee > .marquee-innerd {
   position: absolute;
+  vertical-align: middle;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 19s;
