@@ -1,11 +1,10 @@
 body{
   margin:0px;
-  padding:10px;
+  padding:5px;
+  font-family:Arial,sans-serif;
 }
 
 .title {
-  align-items: center;
-  display: flex;
   height:115px;
   font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight:bold;
@@ -18,13 +17,6 @@ body{
    object-fit: cover;
    width:auto;
    height:9.5vh;
-}
-
-.container {
-  display:grid;
-  grid-gap:10px;
-  grid-template-columns: 1.25fr 1fr ;
-  grid-auto-rows: calc((100vh/4) - 47.5px);
 }
 
 .bigarea {
@@ -107,6 +99,52 @@ body{
   width:AUTO;
 }
 
+.textarea {
+  height:10%;
+  background:#070942;
+  border-radius:10px;
+  white-space:nowrap;
+}
+
+.textareapink {
+  padding:3px;
+  height:45%;
+  background:#c15986;
+  border-radius: 10px;
+  white-space:nowrap;
+}
+
+.textareagreen {
+  padding:3px;
+  height:45%;
+  background:#3d8e3f;
+  border-radius:10px;
+  white-space:nowrap;
+}
+
+.textareablue {
+  padding:3px;
+  height:45%;
+  background:#1f86b7;
+  border-radius:10px;
+  white-space:nowrap;
+}
+
+.textareayellow {
+  padding:3px;
+  height:45%;
+  background:#aa8c20;
+  border-radius:10px;
+  white-space:nowrap;
+}
+
+.container {
+  display:grid;
+  grid-gap:10px;
+  grid-template-columns: 1.25fr 1fr ;
+  grid-auto-rows: calc((100vh/4) - 47.5px);
+}
+
 #itemphoto {
   height:100%;
 }
@@ -132,7 +170,7 @@ body{
   grid-row: 1 / 5;
   background:#0e106b;
   border-color:#fa0;
-  padding:0.5vh;
+  padding:8px;
   border-radius:15px;
   white-space:nowrap;
 }
@@ -141,8 +179,9 @@ body{
   grid-column:2;
   grid-row: 1 / 2;
   background:#e86fa4;
-  padding:0.5vh;
+  padding:8px;
   border-radius:15px;
+  overflow:hidden;
   white-space:nowrap;
 }
 
@@ -150,7 +189,7 @@ body{
   grid-column:2;
   grid-row: 2 / 3;
   background:#57bf5a;
-  padding:0.5vh;
+  padding:8px;
   border-radius:15px;
   white-space:nowrap;
 }
@@ -159,7 +198,7 @@ body{
   grid-column:2;
   grid-row: 3 / 4;
   background:#26a6e2;
-  padding:0.5vh;
+  padding:8px;
   border-radius:15px;
   white-space:nowrap;
 }
@@ -167,63 +206,21 @@ body{
   grid-column:2;
   grid-row: 4 / 5;
   background:#dbb52b;
-  padding:0.5vh;
+  padding:8px;
   border-radius:15px;
   white-space:nowrap;
 }
-
-.textarea {
-  overflow:hidden;
-  margin:0.1vh;
-  height:10%;
-  background:#070942;
-  border-radius:10px;
-  white-space:nowrap;
-}
-
-.textareapink {
-  overflow:hidden;
-  margin:0.1vh;
-  height:45%;
-  background:#c15986;
-  border-radius: 10px;
-  white-space:nowrap;
-}
-
-.textareagreen {
-  overflow:hidden;
-  margin:0.1vh;
-  height:45%;
-  background:#3d8e3f;
-  border-radius:10px;
-  white-space:nowrap;
-}
-
-.textareablue {
-  overflow:hidden;
-  margin:0.1vh;
-  height:45%;
-  background:#1f86b7;
-  border-radius:10px;
-  white-space:nowrap;
-}
-
-.textareayellow {
-  overflow:hidden;
-  margin:0.1vh;
-  height:45%;
-  background:#aa8c20;
-  border-radius:10px;
-  white-space:nowrap;
+body {
+  padding:10px;
+  font-family: sans-serif;
 }
 
 .marquee {
+  overflow:hidden;
   position:relative;
   white-space: nowrap;
   color:#FFF;
   font-size:5.4vh;
-  font-family:Arial,sans-serif;
-
 }
 
 .marquee::after {
@@ -234,7 +231,6 @@ body{
 
 .marquee > .marquee-inner {
   position: absolute;
-  vertical-align: middle;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 20s;
@@ -243,7 +239,6 @@ body{
 
 .marquee > .marquee-innera {
   position: absolute;
-  vertical-align: middle;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 17s;
@@ -252,7 +247,6 @@ body{
 
 .marquee > .marquee-innerb {
   position: absolute;
-  vertical-align: middle;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 18s;
@@ -261,7 +255,6 @@ body{
 
 .marquee > .marquee-innerc {
   position: absolute;
-  vertical-align: middle;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 16s;
@@ -270,7 +263,6 @@ body{
 
 .marquee > .marquee-innerd {
   position: absolute;
-  vertical-align: middle;
   animation-name: marquee;
   animation-timing-function: linear;
   animation-duration: 19s;

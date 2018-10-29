@@ -31,7 +31,7 @@ try {
 			if($videoFlag == 0){
 				echo '<div class="bigarea"><img src="' . $media . '"></div><div class="area"><img src=" ' . $iconurl . '">&nbsp;' . $username . ' @' . $userid . '</div><br><div class="textarea"><div class="marquee"><div class="marquee-inner">';
 			}elseif ($videoFlag == 1){
-				echo '<div class="bigarea"><video muted src="' . $media . '" autoplay></video></div><div class="area"><img src=" ' . $iconurl . '">&nbsp;' . $username . ' @' . $userid . '</div><br><div class="textarea"><div class="marquee"><div class="marquee-inner">';
+				echo '<div class="bigarea"><video muted src="' . $media . '" autoplay loop></video></div><div class="area"><img src=" ' . $iconurl . '">&nbsp;' . $username . ' @' . $userid . '</div><br><div class="textarea"><div class="marquee"><div class="marquee-inner">';
 			}else{
 				echo '不正なパラメータが送信されました。';
 			}
