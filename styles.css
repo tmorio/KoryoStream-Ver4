@@ -143,7 +143,6 @@ body{
   background:#e86fa4;
   padding:0.5vh;
   border-radius:15px;
-  overflow:hidden;
   white-space:nowrap;
 }
 
@@ -174,6 +173,7 @@ body{
 }
 
 .textarea {
+  overflow:hidden;
   margin:0.1vh;
   height:10%;
   background:#070942;
@@ -182,6 +182,7 @@ body{
 }
 
 .textareapink {
+  overflow:hidden;
   margin:0.1vh;
   height:45%;
   background:#c15986;
@@ -190,6 +191,7 @@ body{
 }
 
 .textareagreen {
+  overflow:hidden;
   margin:0.1vh;
   height:45%;
   background:#3d8e3f;
@@ -198,6 +200,7 @@ body{
 }
 
 .textareablue {
+  overflow:hidden;
   margin:0.1vh;
   height:45%;
   background:#1f86b7;
@@ -206,6 +209,7 @@ body{
 }
 
 .textareayellow {
+  overflow:hidden;
   margin:0.1vh;
   height:45%;
   background:#aa8c20;
@@ -214,7 +218,6 @@ body{
 }
 
 .marquee {
-  overflow:hidden;
   position:relative;
   white-space: nowrap;
   color:#FFF;
