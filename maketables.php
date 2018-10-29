@@ -13,10 +13,10 @@ try {
 
 try {
         echo "テーブルの作成を行なっています...\n";
-        $sql = "CREATE TABLE Data(ID int(11) null AUTO_INCREMENT PRIMARY KEY, USER_NAME text null, USER_ID text null, USER_ICON text null, TEXT text null, MEDIA text null)";
+        $sql = "CREATE TABLE Data(ID int(11) null AUTO_INCREMENT PRIMARY KEY, USER_NAME text null, USER_ID text null, USER_ICON text null, TEXT text null, MEDIA text null, VIDEO tinyint(1) null";
         $stmt = $pdo->query($sql);
         echo "データセットの準備を行なっています...\n";
-        $sql = "INSERT INTO `Data` (`ID`, `USER_NAME`, `USER_ID`, `USER_ICON`, `TEXT`, `MEDIA`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL)";
+        $sql = "INSERT INTO `Data` (`ID`, `USER_NAME`, `USER_ID`, `USER_ICON`, `TEXT`, `MEDIA`, `VIDEO`) VALUES (NULL, NULL, NULL, NULL, NULL, NULL, NULL)";
         $counter = 0;
         while ($counter < 5) {
                 $stmt = $pdo->query($sql);

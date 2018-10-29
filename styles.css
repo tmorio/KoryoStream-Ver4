@@ -48,6 +48,21 @@ body{
   max-height:96%;
 }
 
+.bigarea video{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  min-height: 95%;
+  max-width: 96%;
+  max-height: 96%;
+ }
+
 .area {
   position:relative;
   top:2%;
@@ -205,6 +220,7 @@ body{
   color:#FFF;
   font-size:5.4vh;
   font-family:Arial,sans-serif;
+
 }
 
 .marquee::after {
@@ -215,9 +231,10 @@ body{
 
 .marquee > .marquee-inner {
   position: absolute;
+  top:15%;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 16s;
+  animation-duration: 20s;
   animation-fill-mode: forwards;
 }
 
@@ -225,7 +242,7 @@ body{
   position: absolute;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 18s;
+  animation-duration: 17s;
   animation-fill-mode: forwards;
 }
 
@@ -233,7 +250,7 @@ body{
   position: absolute;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 17s;
+  animation-duration: 18s;
   animation-fill-mode: forwards;
 }
 
@@ -241,7 +258,7 @@ body{
   position: absolute;
   animation-name: marquee;
   animation-timing-function: linear;
-  animation-duration: 20s;
+  animation-duration: 16s;
   animation-fill-mode: forwards;
 }
 

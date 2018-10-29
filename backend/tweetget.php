@@ -58,6 +58,7 @@ class FilterTrackConsumer extends OauthPhirehose{
         $userid = $data['user']['screen_name'];
         $iconurl = str_ireplace('_normal', '', $data['user']['profile_image_url_https']);
         $strcontent = $result;
+	    	$videoFlag = null;
 
         if(empty($data['extended_entities'])){
           //ID位置取得
@@ -67,16 +68,21 @@ class FilterTrackConsumer extends OauthPhirehose{
           $mediaurl = "";
           } else {
           $pointer = 1;
+		      $videoFlag = 0;
           if(($data['extended_entities']['media'][0]['type'] == "photo")){
             $mediaurl = $data['extended_entities']['media'][0]['media_url'];
-	        }
+	         }
+		      if(($data['extended_entities']['media'][0]['type'] == "video")){
+		      	$videoFlag = 1;
+            $mediaurl = $data['extended_entities']['media'][0]['video_info']['variants'][0]['url'];
+	         }
         }
 
         //nohupログ用DRBUG
         print "INSERT:" . "ID:" . $pointer . "," . $data['user']['name'] . "@" . $userid ."(" . $data['user']['id'] . ")" .  "," . $strcontent . "\n";
 
         //実行するSQL文設定
-        $query = "UPDATE Data SET USER_NAME = :username, USER_ID = :userid, USER_ICON = :usericon, TEXT = :text, MEDIA = :media WHERE id = :id";
+        $query = "UPDATE Data SET USER_NAME = :username, USER_ID = :userid, USER_ICON = :usericon, TEXT = :text, MEDIA = :media, VIDEO = :videoFlag WHERE id = :id";
         //SQL実行準備
         $stmt = $dbh->prepare($query);
         //各キーにPDOで代入
@@ -86,6 +92,7 @@ class FilterTrackConsumer extends OauthPhirehose{
         $stmt->bindParam(':text', $strcontent, PDO::PARAM_STR);
         $stmt->bindParam(':media', $mediaurl, PDO::PARAM_STR);
         $stmt->bindValue(':id', $pointer, PDO::PARAM_INT);
+		    $stmt->bindValue(':videoFlag', $videoFlag, PDO::PARAM_INT);
         //UPDATE実行
         $stmt->execute();
 
@@ -107,4 +114,3 @@ class FilterTrackConsumer extends OauthPhirehose{
 $sc = new FilterTrackConsumer(OAUTH_TOKEN, OAUTH_SECRET, Phirehose::METHOD_FILTER);
 $sc->setTrack(SEARCHWORD);
 $sc->consume();
-
