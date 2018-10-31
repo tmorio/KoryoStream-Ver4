@@ -1,13 +1,14 @@
 body{
   margin:0px;
   padding:10px;
-  font-family:Arial,sans-serif;
+  font-family:Arial;
 }
 
 .title {
   align-items: center;
   display: flex;
-  height:115px;
+  height:auto;
+  max-height:115px;
   font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight:bold;
   text-overflow:ellipsis;
