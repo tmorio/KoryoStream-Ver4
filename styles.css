@@ -7,8 +7,8 @@ body{
 .title {
   align-items: center;
   display: flex;
-  height:auto;
   max-height:115px;
+  height:auto;
   font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight:bold;
   text-overflow:ellipsis;
@@ -80,8 +80,8 @@ body{
   position: relative;
   top:-5%;
   vertical-align:middle;
-  max-width:70px;
-  max-height:70px;
+  max-width:80px;
+  max-height:80px;
   height:100%;
   width:AUTO;
 }
@@ -103,8 +103,8 @@ body{
   position: relative;
   top:-6%;
   vertical-align:middle;
-  max-width:70px;
-  max-height:70px;
+  max-width:80px;
+  max-height:80px;
   height:100%;
   width:AUTO;
 }
@@ -130,6 +130,7 @@ body{
 }
 
 .photo {
+  overflow:hidden;
   grid-column:1;
   grid-row: 1 / 5;
   background:#0e106b;
@@ -139,6 +140,7 @@ body{
 }
 
 .item1 {
+  overflow:hidden;
   grid-column:2;
   grid-row: 1 / 2;
   background:#e86fa4;
@@ -148,6 +150,7 @@ body{
 }
 
 .item2 {
+  overflow:hidden;
   grid-column:2;
   grid-row: 2 / 3;
   background:#57bf5a;
@@ -157,6 +160,7 @@ body{
 }
 
 .item3 {
+  overflow:hidden;
   grid-column:2;
   grid-row: 3 / 4;
   background:#26a6e2;
@@ -165,6 +169,7 @@ body{
   white-space:nowrap;
 }
 .item4 {
+  overflow:hidden;
   grid-column:2;
   grid-row: 4 / 5;
   background:#dbb52b;
@@ -321,3 +326,5 @@ body{
     0% { left: 101%; transform: translate(0); }
   100% { left: 0; transform: translate(-101%); }
 }
+
+

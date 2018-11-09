@@ -1,7 +1,9 @@
+<?php
+
 /*
 The MIT License (MIT)
 
-Copyright (c) 2018 MoritoWorks(Morikapu)
+Copyright (c) 2018 MoritoWorks,Morikapu(Takenori Morio)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,7 +24,6 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
-<?php
 require_once('./lib/Phirehose.php');
 require_once('./lib/OauthPhirehose.php');
 require_once('./myid.php');
