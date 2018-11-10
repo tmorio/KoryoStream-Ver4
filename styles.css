@@ -11,6 +11,8 @@ body{
   height:auto;
   font-family:Helvetica Neue LT,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight:bold;
+  overflow: hidden;
+  white-space: nowrap;
   text-overflow:ellipsis;
   vertical-align:6px;
   font-size: 10vh;
