@@ -9,7 +9,7 @@
 ## 必要なもの
 ・PHP7.0以上が動くWebサーバー  
 ・MySQL系のデータベース  
-・IE、Edge以外のブラウザ(なら大体動くと思う 推奨はVivaldiかChromeです.)  
+・u3m8の再生に対応したブラウザ(そのうちアップデートで他のブラウザにも対応できるようにしていきます)  
 ・Twitter APIキー  
 ・[Twitter logo](https://about.twitter.com/en_us/company/brand-resources.html)←ガイドラインの関係上添付できなかった
 ## 使い方
